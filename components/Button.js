@@ -17,6 +17,7 @@ export default ({ onPress, text, size, theme }) => {
     textStyles.push(styles.textTop)
   } else if (theme === 'accent') {
     buttonStyles.push(styles.buttonAccent);
+    textStyles.push(styles.textAccent)
   }
 
   return (
@@ -30,9 +31,6 @@ const styles = StyleSheet.create({
   text: {
     color: "#fff",
     fontSize: 30,
-  },
-  textTop: {
-    color: "#060606"
   },
   button: {
     backgroundColor: '#333333',
@@ -49,10 +47,16 @@ const styles = StyleSheet.create({
       alignItems: "flex-start",
       paddingLeft: 30
   },
+  textTop: {
+    color: "steelblue"
+  },
   buttonTop: {
-      backgroundColor: "#a6a6a6"
+      backgroundColor: "snow"
+  },
+  textAccent: {
+    color: "snow"
   },
   buttonAccent: {
-    backgroundColor: "crimson"
+    backgroundColor: "steelblue",
   }
 });
