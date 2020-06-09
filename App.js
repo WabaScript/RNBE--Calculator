@@ -8,52 +8,65 @@ export default function App() {
   const [currentValue, setCurrentValue] = useState("0");
   const [operator, setOperator] = useState(null);
   const [prevValue, setPrevValue] = useState(null);
+  const prev = parseFloat(prevValue);
+  const curr = parseFloat(currentValue);
 
   const handleTap = (type, value) => {
     if (type === "number") {
       if (currentValue === "0") {
-        return setCurrentValue(`${value}`)
+        return setCurrentValue(`${value}`);
       }
-      return setCurrentValue(`${currentValue}${value}`)
+      return setCurrentValue(`${currentValue}${value}`);
     }
     if (type === "operator") {
         setOperator(value);
         setPrevValue(currentValue);
         setCurrentValue("0");
+
+      if (operator === "/") {
+        setPrevValue(prev / curr);
+      }
+      if (operator === "*") {
+        setPrevValue(prev * curr);
+      }
+      if (operator === "+") {
+        setPrevValue(prev + curr);
+      }
+      if (operator === "-") {
+        setPrevValue(prev - curr);
+      }
     }
     if (type === "equal") {
-      const prev = parseFloat(prevValue);
-      const curr = parseFloat(currentValue);
       const reset = () => { 
         setOperator(null); 
         setPrevValue(null);
       }
-
       if (operator === "/") {
         setCurrentValue(prev / curr);
-        reset()
+        reset();
       }
       if (operator === "*") {
         setCurrentValue(prev * curr);
-        reset()
+        reset();
       }
       if (operator === "+") {
         setCurrentValue(prev + curr);
-        reset()
+        reset();
       }
       if (operator === "-") {
         setCurrentValue(prev - curr);
-        reset()
+        reset();
       }
     }
     if (type === "clear") {
-      setCurrentValue(0)
+      setCurrentValue(0);
+      setPrevValue(0);
     }
     if (type === "pn") {
-      setCurrentValue(`${parseFloat(currentValue) * -1}`)
+      setCurrentValue(`${parseFloat(currentValue) * -1}`);
     }
     if (type === "percentage") {
-      setCurrentValue(`${parseFloat(currentValue) * 0.01}`)
+      setCurrentValue(`${parseFloat(currentValue) * 0.01}`);
     }
   };
 
