@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, StatusBar, SafeAreaView } from 'react-native';
-
 import Row from './components/Row';
 import Button from './components/Button';
 
@@ -19,9 +18,9 @@ export default function App() {
       return setCurrentValue(`${currentValue}${value}`);
     }
     if (type === "operator") {
-        setOperator(value);
-        setPrevValue(currentValue);
-        setCurrentValue("0");
+      setOperator(value);
+      setPrevValue(currentValue);
+      setCurrentValue("0");
 
       if (operator === "/") {
         setPrevValue(prev / curr);
@@ -58,13 +57,16 @@ export default function App() {
         reset();
       }
     }
+    //Clear Button
     if (type === "clear") {
       setCurrentValue(0);
       setPrevValue(0);
     }
+    //Positive or Negative Button
     if (type === "pn") {
       setCurrentValue(`${parseFloat(currentValue) * -1}`);
     }
+    //Percentage Button
     if (type === "percentage") {
       setCurrentValue(`${parseFloat(currentValue) * 0.01}`);
     }
