@@ -1,5 +1,5 @@
 # RNBE-Tutorial Series-- Project 2: Calculator
-Countdown Timer App
+Calculator App
 
 ## Calculator with Full Functionality and easy to change color schemes
 <div align="center">
